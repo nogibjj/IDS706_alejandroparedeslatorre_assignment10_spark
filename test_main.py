@@ -1,6 +1,4 @@
 import os
-import sqlite3
-import pandas as pd
 import pytest
 from unittest.mock import patch, MagicMock
 from lib.extract_transform_load import ETL
