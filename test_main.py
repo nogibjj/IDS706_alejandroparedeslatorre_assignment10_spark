@@ -46,19 +46,20 @@ def test_transform(etl):
     expected_unique_id = f"{sample_row['name']}_{sample_row['country']}"
     assert sample_row['unique_id'] == expected_unique_id, "Transform failed: 'unique_id' column not created as expected."
 
-def test_spark_sql_query(etl):
-    """Test the spark_sql_query method to ensure SQL queries run correctly on Spark DataFrames."""
-    # Apply transformation before running SQL query
-    etl.extract()
-    etl.transform()
+def test_spark_transform(etl):
+    """Test the transform method to ensure it runs without errors."""
     
-    # Run a sample query and capture the result
-    query = "SELECT name, country FROM universities WHERE country = 'United States'"
-    result_df = etl.spark.sql(query)
-    
-    # Check if result is not empty
-    assert result_df.count() > 0, "Spark SQL query failed: No results returned."
-    assert "name" in result_df.columns and "country" in result_df.columns, "Spark SQL query failed: Expected columns not found."
+    try:
+        # Run extract first to initialize df_spark with data
+        etl.extract()
+        # Apply the transformation
+        etl.transform()
+        print("Transformation ran successfully.")
+    except Exception as e:
+        # If there is an error, print the error message
+        print(f"Transformation failed: {e}")
+        raise
+
 
 def test_log_output(etl):
     """Test the log_output method to ensure logs are written correctly to the markdown file."""

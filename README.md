@@ -30,8 +30,6 @@ The primary objective of this project is to demonstrate data handling using an E
 
 The ETL architecture is presented below:
 
-![Architecture Diagram](sql_structure.JPG)
-
 1. **Extract**: Fetch data from the API.
 2. **Transform**: Clean and structure data with PySpark, exploding and concatenating fields to create unique records.
 3. **Load**: Insert transformed data into SQLite.
