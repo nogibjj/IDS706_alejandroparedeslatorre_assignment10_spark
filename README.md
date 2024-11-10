@@ -1,4 +1,5 @@
 # IDS706_AlejandroParedesLaTorre_Assignment10_PySpark
+[![CI](https://github.com/nogibjj/IDS706_alejandroparedeslatorre_assignment10_spark/actions/workflows/CI.yml/badge.svg)](https://github.com/nogibjj/IDS706_alejandroparedeslatorre_assignment10_spark/actions/workflows/CI.yml)
 
 This repository provides an ETL pipeline using PySpark to extract data from an external API, transform it for analysis, and load it into a SQLite database.
 
